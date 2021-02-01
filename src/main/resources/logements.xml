@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
-<Personnes>
-    <Personne>
+<Hotes>
+    <Hote>
         <nom>Bardu</nom>
         <prenom>Peter</prenom>
         <age>31</age>
-    </Personne>
-    <Personne>
+        <delaiDeReponse>8</delaiDeReponse>
+    </Hote>
+    <Hote>
         <nom>Save</nom>
         <prenom>Jean-Philippe</prenom>
         <age>39</age>
-    </Personne>
-</Personnes>
+        <delaiDeReponse>10</delaiDeReponse>
+    </Hote>
+</Hotes>

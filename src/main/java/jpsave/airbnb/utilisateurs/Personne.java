@@ -4,7 +4,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name = "Personne")
 public class Personne {
 
     @XmlElement
@@ -15,7 +14,6 @@ public class Personne {
     private int age;
 
     public Personne() {
-
     }
 
     public Personne(String prenom, String nom, int age) {

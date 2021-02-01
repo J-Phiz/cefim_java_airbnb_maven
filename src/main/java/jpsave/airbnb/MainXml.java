@@ -26,7 +26,7 @@ public class MainXml {
         Unmarshaller um = context.createUnmarshaller();
         LogementsXMLFile logements = (LogementsXMLFile) um.unmarshal(new FileReader(XML_FILE));
 
-        logements.getPersonnes().forEach(l -> {
+        logements.gethotes().forEach(l -> {
             System.out.println("Personnes : " + l);
             l.afficher();
         });

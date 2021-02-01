@@ -9,13 +9,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement(name = "Personnes")
+@XmlRootElement(name = "Hotes")
 public class LogementsXMLFile {
 
-    @XmlElement(name = "Personne")
-    private List<Personne> personnes;
+    @XmlElement(name = "Hote")
+    private List<Hote> hotes;
 
-    public List<Personne> getPersonnes() {
-        return personnes;
+    public List<Hote> gethotes() {
+        return hotes;
     }
 }
