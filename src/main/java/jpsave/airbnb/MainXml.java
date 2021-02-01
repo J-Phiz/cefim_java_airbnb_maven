@@ -9,7 +9,7 @@ import java.io.FileReader;
 
 public class MainXml {
 
-    private static final String XML_FILE = "/Users/jpsave/IdeaProjects/AirBnB-maven/src/main/resources/logements.xml";
+    private static final String XML_FILE = "/Users/jpsave/IdeaProjects/AirBnB-maven/src/main/resources/logements-final.xml";
     public static void main(String[] args) {
         try {
             testJaxb();
@@ -26,9 +26,13 @@ public class MainXml {
         Unmarshaller um = context.createUnmarshaller();
         LogementsXMLFile logements = (LogementsXMLFile) um.unmarshal(new FileReader(XML_FILE));
 
-        logements.gethotes().forEach(l -> {
-            System.out.println("Personnes : " + l);
-            l.afficher();
+        logements.getAppartements().forEach(appartement -> {
+            appartement.afficher();
+            System.out.println();
+        });
+        logements.getMaisons().forEach(maison -> {
+            maison.afficher();
+            System.out.println();
         });
     }
 }

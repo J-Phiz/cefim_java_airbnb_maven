@@ -2,9 +2,16 @@ package jpsave.airbnb.logements;
 
 import jpsave.airbnb.utilisateurs.Hote;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class Appartement extends Logement {
+    @XmlElement
     private int numeroEtage;
+    @XmlElement
     private int superficieBalcon;
+
+    public Appartement() {
+    }
 
     public Appartement(Hote hote,
                        int tarifParNuit,
