@@ -1,16 +1,29 @@
 package jpsave.airbnb.utilisateurs;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "Personne")
 public class Personne {
 
-    private String prenom;
+    @XmlElement
     private String nom;
+    @XmlElement
+    private String prenom;
+    @XmlElement
     private int age;
+
+    public Personne() {
+
+    }
 
     public Personne(String prenom, String nom, int age) {
         this.prenom = prenom;
         this.nom = nom;
         this.age = age;
     }
+
 
     public void afficher() {
         System.out.print(prenom + " " + nom + " (" + age + " ans)");

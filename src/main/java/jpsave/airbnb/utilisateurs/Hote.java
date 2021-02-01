@@ -1,5 +1,8 @@
 package jpsave.airbnb.utilisateurs;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 public class Hote extends Personne {
 
     private static final int DELAI_REPONSE_STANDARD = 48;
