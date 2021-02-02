@@ -1,6 +1,7 @@
 package jpsave.airbnb.logements;
 
 import jpsave.airbnb.utilisateurs.Hote;
+import jpsave.airbnb.utilisateurs.Personne;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class Logement {
+public abstract class Logement implements Comparable<Logement> {
     @XmlAttribute
     private String nom;
     @XmlElement
@@ -46,4 +47,17 @@ public abstract class Logement {
 
     public abstract void afficher();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Logement logement = (Logement) o;
+        return tarifParNuit == logement.tarifParNuit;
+    }
+
+    @Override
+    public int compareTo(Logement logement) {
+        if (logement == null) throw new NullPointerException();
+        return this.tarifParNuit - logement.getTarifParNuit();
+    }
 }
