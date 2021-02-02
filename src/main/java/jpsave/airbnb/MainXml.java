@@ -63,21 +63,21 @@ public class MainXml {
         System.out.println();
         System.out.println();
         System.out.println("La maison de Jean est :");
-        Maison maisonDeJean = (Maison)findLogementByName("Maison Jean");
+        Maison maisonDeJean = (Maison)findLogementByNameWithGenericity("Maison Jean");
         maisonDeJean.afficher();
 
         System.out.println();
         System.out.println();
         System.out.println("L'appartement de Michel est :");
-        Appartement appartDeMichel = (Appartement)findLogementByName("Appart Michel");
+        Appartement appartDeMichel = (Appartement)findLogementByNameWithGenericity("Appart Michel");
         appartDeMichel.afficher();
     }
 
 
-    private static Logement findLogementByName(String nom) {
+    private static <T extends Logement> T findLogementByNameWithGenericity(String nom) {
         for(Logement logement : logements) {
             if(logement.getNom().equalsIgnoreCase(nom)) {
-                return logement;
+                return (T) logement;
             }
         }
         return null;
