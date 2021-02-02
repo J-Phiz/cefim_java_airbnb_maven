@@ -1,4 +1,4 @@
-package jpsave.airbnb;
+package jpsave.airbnb.outils;
 
 public class Genericity <T extends Comparable> {
     private T obj1;

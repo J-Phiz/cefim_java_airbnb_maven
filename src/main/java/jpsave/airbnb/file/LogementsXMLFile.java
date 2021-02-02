@@ -1,4 +1,4 @@
-package jpsave.airbnb;
+package jpsave.airbnb.file;
 
 import jpsave.airbnb.logements.Appartement;
 import jpsave.airbnb.logements.Maison;

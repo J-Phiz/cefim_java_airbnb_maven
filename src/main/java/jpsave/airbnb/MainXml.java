@@ -1,17 +1,15 @@
 package jpsave.airbnb;
 
+import jpsave.airbnb.file.LogementsXMLFile;
 import jpsave.airbnb.logements.Appartement;
 import jpsave.airbnb.logements.Logement;
 import jpsave.airbnb.logements.Maison;
 import jpsave.airbnb.utilisateurs.Hote;
-import jpsave.airbnb.utilisateurs.Personne;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import java.io.FileReader;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 public class MainXml {
