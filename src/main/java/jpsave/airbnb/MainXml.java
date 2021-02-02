@@ -19,8 +19,7 @@ public class MainXml {
     private static final String XML_FILE = "/Users/jpsave/IdeaProjects/AirBnB-maven/src/main/resources/logements-final.xml";
 
     public static Set<Hote> hotes = new HashSet<>();
-    public static Set<Maison> maisons = new HashSet<>();
-    public static Set<Appartement> appartements = new HashSet<>();
+    public static Set<Logement> logements = new HashSet<>();
 
 
     public static void main(String[] args) {
@@ -42,50 +41,43 @@ public class MainXml {
         // Récupérer la Liste des hotes
         xmlLogements.getAppartements().forEach(xmlAppartement -> {
             hotes.add(xmlAppartement.getHote());
-            appartements.add(xmlAppartement);
+            logements.add(xmlAppartement);
         });
         xmlLogements.getMaisons().forEach(xmlMaison -> {
             hotes.add(xmlMaison.getHote());
-            maisons.add(xmlMaison);
+            logements.add(xmlMaison);
         });
 
-        System.out.println("Liste des hotes :");
-        hotes.forEach(Hote::afficher);
-        System.out.println();
-        System.out.println();
-        System.out.println("Liste des appartements :");
-        appartements.forEach(Appartement::afficher);
-        System.out.println();
-        System.out.println();
-        System.out.println("Liste des maisons :");
-        maisons.forEach(Maison::afficher);
+//        System.out.println("Liste des hotes :");
+//        hotes.forEach(Hote::afficher);
+//        System.out.println();
+//        System.out.println();
+//        System.out.println("Liste des appartements :");
+//        appartements.forEach(Appartement::afficher);
+//        System.out.println();
+//        System.out.println();
+//        System.out.println("Liste des maisons :");
+//        maisons.forEach(Maison::afficher);
 
 
         System.out.println();
         System.out.println();
         System.out.println("La maison de Jean est :");
-        findMaisonByName("Maison Jean").afficher();
+        Maison maisonDeJean = (Maison)findLogementByName("Maison Jean");
+        maisonDeJean.afficher();
 
         System.out.println();
         System.out.println();
         System.out.println("L'appartement de Michel est :");
-        findAppartByName("Appart Michel").afficher();
+        Appartement appartDeMichel = (Appartement)findLogementByName("Appart Michel");
+        appartDeMichel.afficher();
     }
 
 
-    private static Maison findMaisonByName(String nom) {
-        for(Maison maison : maisons) {
-            if(maison.getNom().equalsIgnoreCase(nom)) {
-                return maison;
-            }
-        }
-        return null;
-    }
-
-    private static Appartement findAppartByName(String nom) {
-        for(Appartement appartement : appartements) {
-            if(appartement.getNom().equalsIgnoreCase(nom)) {
-                return appartement;
+    private static Logement findLogementByName(String nom) {
+        for(Logement logement : logements) {
+            if(logement.getNom().equalsIgnoreCase(nom)) {
+                return logement;
             }
         }
         return null;
