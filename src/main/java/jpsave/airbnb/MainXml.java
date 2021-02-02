@@ -2,6 +2,7 @@ package jpsave.airbnb;
 
 import jpsave.airbnb.logements.Appartement;
 import jpsave.airbnb.logements.Logement;
+import jpsave.airbnb.logements.Maison;
 import jpsave.airbnb.utilisateurs.Hote;
 import jpsave.airbnb.utilisateurs.Personne;
 
@@ -16,6 +17,12 @@ import java.util.Set;
 public class MainXml {
 
     private static final String XML_FILE = "/Users/jpsave/IdeaProjects/AirBnB-maven/src/main/resources/logements-final.xml";
+
+    public static Set<Hote> hotes = new HashSet<>();
+    public static Set<Maison> maisons = new HashSet<>();
+    public static Set<Appartement> appartements = new HashSet<>();
+
+
     public static void main(String[] args) {
         try {
             testJaxb();
@@ -33,23 +40,40 @@ public class MainXml {
         LogementsXMLFile xmlLogements = (LogementsXMLFile) um.unmarshal(new FileReader(XML_FILE));
 
         // Récupérer la Liste des hotes
-        Set<Hote> hotes = new HashSet<>();
-        Set<Logement> logements = new HashSet<>();
         xmlLogements.getAppartements().forEach(xmlAppartement -> {
             hotes.add(xmlAppartement.getHote());
-            logements.add(xmlAppartement);
+            appartements.add(xmlAppartement);
         });
         xmlLogements.getMaisons().forEach(xmlMaison -> {
             hotes.add(xmlMaison.getHote());
-            logements.add(xmlMaison);
+            maisons.add(xmlMaison);
         });
 
         System.out.println("Liste des hotes :");
         hotes.forEach(Hote::afficher);
         System.out.println();
         System.out.println();
-        System.out.println("Liste des logements :");
-        logements.forEach(Logement::afficher);
+        System.out.println("Liste des appartements :");
+        appartements.forEach(Appartement::afficher);
+        System.out.println();
+        System.out.println();
+        System.out.println("Liste des maisons :");
+        maisons.forEach(Maison::afficher);
 
+
+        System.out.println();
+        System.out.println();
+        System.out.println("La maison des Jean est :");
+        findMaisonByName("Maison Jean").afficher();
+    }
+
+
+    private static Maison findMaisonByName(String nom) {
+        for(Maison maison : maisons) {
+            if(maison.getNom().equalsIgnoreCase(nom)) {
+                return maison;
+            }
+        }
+        return null;
     }
 }
