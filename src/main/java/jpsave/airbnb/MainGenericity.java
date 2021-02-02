@@ -3,8 +3,11 @@ package jpsave.airbnb;
 import jpsave.airbnb.logements.Appartement;
 import jpsave.airbnb.logements.Maison;
 import jpsave.airbnb.outils.Genericity;
+import jpsave.airbnb.outils.GenericityList;
 import jpsave.airbnb.utilisateurs.Hote;
 import jpsave.airbnb.utilisateurs.Personne;
+
+import java.util.ArrayList;
 
 public class MainGenericity {
     public static void main(String[] args) {
@@ -47,5 +50,17 @@ public class MainGenericity {
         System.out.println("Parmis " + hote2.getPrenom() + " " + hote2.getNom() +
                 " et " + hote3.getPrenom() + " " + hote3.getNom() +
                 " c'est " + cool.getPrenom() + " " + cool.getNom() + " le plus cool.");
+
+        System.out.println();
+
+        GenericityList<Hote> genericityList = new GenericityList<>();
+        genericityList.add(hote1);
+        genericityList.add(hote2);
+        genericityList.add(hote3);
+        Hote lePlusCool = genericityList.getLower();
+        System.out.println("Parmis " + hote1.getPrenom() + " " + hote1.getNom() +
+                ", " + hote2.getPrenom() + " " + hote2.getNom() +
+                " et " + hote3.getPrenom() + " " + hote3.getNom() +
+                " c'est " + lePlusCool.getPrenom() + " " + lePlusCool.getNom() + " le plus cool.");
     }
 }
