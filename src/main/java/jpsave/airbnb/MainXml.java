@@ -44,9 +44,9 @@ public class MainXml {
             logements.add(xmlMaison);
         });
 
-        System.out.println();
         System.out.println("Liste des hotes :");
         hotes.forEach(Hote::afficher);
+        System.out.println();
         System.out.println();
         System.out.println("Liste des logements :");
         logements.forEach(Logement::afficher);

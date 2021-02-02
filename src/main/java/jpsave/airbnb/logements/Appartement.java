@@ -37,7 +37,7 @@ public class Appartement extends Logement {
             numEtageString = String.format("%dème", numeroEtage);
 
         this.getHote().afficher();
-        System.out.print(".\nLe logement est un appartement situé " + this.getAdresse() + " au " + numEtageString + " étage.");
+        System.out.print(".\nLe logement \"" + this.getNom() + "\" est un appartement situé " + this.getAdresse() + " au " + numEtageString + " étage.");
         System.out.print("\nSuperficie : " + getSuperficie() + "m2");
         if(superficieBalcon > 0)
             System.out.print("\nBalcon : Oui (" + superficieBalcon + "m2)");

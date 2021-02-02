@@ -2,9 +2,14 @@ package jpsave.airbnb.logements;
 
 import jpsave.airbnb.utilisateurs.Hote;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Logement {
+    @XmlElement
+    private String nom;
     @XmlElement
     private Hote hote;
     @XmlElement
@@ -25,8 +30,11 @@ public abstract class Logement {
         this.adresse = adresse;
         this.superficie = superficie;
         this.nbVoyageursMax = nbVoyageursMax;
+        this.nom = "";
     }
 
+    public void setNom(String nom) { this.nom = nom; }
+    public String getNom() { return nom; }
     public int getTarifParNuit() { return tarifParNuit; }
     public Hote getHote() { return hote; }
     public String getAdresse() { return adresse; }
