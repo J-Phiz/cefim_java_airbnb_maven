@@ -10,6 +10,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import java.io.FileReader;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class MainXml {
@@ -61,33 +62,40 @@ public class MainXml {
         System.out.println();
         System.out.println();
         System.out.println("La maison de Jean est :");
-        Maison maisonDeJean = (Maison)findLogementByNameWithGenericity("Maison Jean");
-        maisonDeJean.afficher();
+        Optional<Maison> optionalMaison = findLogementByNameWithGenericity("Maison Jean");
+        if(optionalMaison.isPresent()) {
+            Maison maisonDeJean = optionalMaison.get();
+            maisonDeJean.afficher();
+        }
 
         System.out.println();
         System.out.println();
         System.out.println("L'appartement de Michel est :");
-        Appartement appartDeMichel = (Appartement)findLogementByNameWithGenericity("Appart Michel");
-        appartDeMichel.afficher();
+        Optional<Appartement> optionalAppartement1 = findLogementByNameWithGenericity("Appart Michel");
+        if(optionalAppartement1.isPresent()) {
+            Appartement appartementDeMichel = optionalAppartement1.get();
+            appartementDeMichel.afficher();
+        }
 
         System.out.println();
         System.out.println();
         System.out.println("L'appartement de Toto est :");
-        try {
-            Appartement appartDeToto = (Appartement) findLogementByNameWithGenericity("Appart Toto");
-            appartDeToto.afficher();
-        } catch (NullPointerException e) {
-            System.out.println("Toto n'a pas d'appartement");
+        Optional<Appartement> optionalAppartement2 = findLogementByNameWithGenericity("Appart Toto");
+        if(optionalAppartement2.isPresent()) {
+            Appartement appartementDeToto = optionalAppartement2.get();
+            appartementDeToto.afficher();
         }
     }
 
 
-    private static <T extends Logement> T findLogementByNameWithGenericity(String nom) {
+    private static <T extends Logement> Optional<T> findLogementByNameWithGenericity(String nom) {
+        T found = null;
         for(Logement logement : logements) {
             if(logement.getNom().equalsIgnoreCase(nom)) {
-                return (T) logement;
+                found = (T) logement;
+                break;
             }
         }
-        throw  new NullPointerException();
+        return Optional.ofNullable(found);
     }
 }
