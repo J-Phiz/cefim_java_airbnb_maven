@@ -2,7 +2,7 @@ package jpsave.airbnb.utilisateurs;
 
 import javax.xml.bind.annotation.XmlElement;
 
-public class Personne {
+public class Personne implements Comparable<Personne> {
 
     @XmlElement
     private String nom;
@@ -20,6 +20,13 @@ public class Personne {
         this.age = age;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
 
     public void afficher() {
         System.out.print(prenom + " " + nom + " (" + age + " ans)");
@@ -35,5 +42,11 @@ public class Personne {
             return prenom.equals(p.prenom) && nom.equals(p.nom);
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(Personne o) {
+        if (o == null) throw new NullPointerException();
+        return this.age - o.age;
     }
 }

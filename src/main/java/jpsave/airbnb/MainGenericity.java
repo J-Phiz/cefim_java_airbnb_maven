@@ -4,12 +4,16 @@ import jpsave.airbnb.logements.Appartement;
 import jpsave.airbnb.logements.Logement;
 import jpsave.airbnb.logements.Maison;
 import jpsave.airbnb.utilisateurs.Hote;
+import jpsave.airbnb.utilisateurs.Personne;
 
 public class MainGenericity {
     public static void main(String[] args) {
-        // hotes
+        // Personnes
+        Personne personne1 = new Personne("Peter", "Bardu", 28);
+        Personne personne2 = new Personne("Agathe", "Feeling", 55);
         Hote hote1 = new Hote("Peter", "Bardu", 28, 12);
-        Hote hote2 = new Hote("Agathe", "Feeling", 55, 1);
+        Hote hote2 = new Hote("Agathe", "Feeling", 55, 2);
+        Hote hote3 = new Hote("Vladimir", "Guez", 55, 1);
 
         // logements
         Maison maison1 = new Maison(hote1, 50, "81 Rue Colbert, 37000 Tours", 140, 5, 500, true);
@@ -28,6 +32,20 @@ public class MainGenericity {
         System.out.println("Parmis " + appartement1.getNom() + " et " + appartement2.getNom() + " c'est " +
                 ((Appartement) genericity.getHigher()).getNom() + " le plus cher.");
 
+        System.out.println();
 
+        genericity = new Genericity(personne1, personne2);
+        Personne jeune = (Personne) genericity.getLower();
+        System.out.println("Parmis " + personne1.getPrenom() + " " + personne1.getNom() +
+                " et " + personne2.getPrenom() + " " + personne2.getNom() +
+                " c'est " + jeune.getPrenom() + " " + jeune.getNom() + " le plus jeune.");
+
+        System.out.println();
+
+        genericity = new Genericity(hote2, hote3);
+        Hote cool = (Hote) genericity.getLower();
+        System.out.println("Parmis " + hote2.getPrenom() + " " + hote2.getNom() +
+                " et " + hote3.getPrenom() + " " + hote3.getNom() +
+                " c'est " + cool.getPrenom() + " " + cool.getNom() + " le plus cool.");
     }
 }

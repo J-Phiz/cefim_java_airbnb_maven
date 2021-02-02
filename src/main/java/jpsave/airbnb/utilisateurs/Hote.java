@@ -30,4 +30,11 @@ public class Hote extends Personne {
             System.out.print(" qui s'engage à répondre dans les " + delaiDeReponse + " heures");
         }
     }
+
+    @Override
+    public int compareTo(Personne o) {
+        if (o == null) throw new NullPointerException();
+        if (getClass() != o.getClass()) throw new ClassCastException();
+        return this.delaiDeReponse - ((Hote)o).delaiDeReponse;
+    }
 }
