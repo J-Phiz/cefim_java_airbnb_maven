@@ -71,6 +71,16 @@ public class MainXml {
         System.out.println("L'appartement de Michel est :");
         Appartement appartDeMichel = (Appartement)findLogementByNameWithGenericity("Appart Michel");
         appartDeMichel.afficher();
+
+        System.out.println();
+        System.out.println();
+        System.out.println("L'appartement de Toto est :");
+        try {
+            Appartement appartDeToto = (Appartement) findLogementByNameWithGenericity("Appart Toto");
+            appartDeToto.afficher();
+        } catch (NullPointerException e) {
+            System.out.println("Toto n'a pas d'appartement");
+        }
     }
 
 
@@ -80,6 +90,6 @@ public class MainXml {
                 return (T) logement;
             }
         }
-        return null;
+        throw  new NullPointerException();
     }
 }
