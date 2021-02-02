@@ -63,8 +63,13 @@ public class MainXml {
 
         System.out.println();
         System.out.println();
-        System.out.println("La maison des Jean est :");
+        System.out.println("La maison de Jean est :");
         findMaisonByName("Maison Jean").afficher();
+
+        System.out.println();
+        System.out.println();
+        System.out.println("L'appartement de Michel est :");
+        findAppartByName("Appart Michel").afficher();
     }
 
 
@@ -72,6 +77,15 @@ public class MainXml {
         for(Maison maison : maisons) {
             if(maison.getNom().equalsIgnoreCase(nom)) {
                 return maison;
+            }
+        }
+        return null;
+    }
+
+    private static Appartement findAppartByName(String nom) {
+        for(Appartement appartement : appartements) {
+            if(appartement.getNom().equalsIgnoreCase(nom)) {
+                return appartement;
             }
         }
         return null;
