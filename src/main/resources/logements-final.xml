@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <Logements>
 
-	<Appartement>
-		<nom>Appart de Peter sur Tours</nom>
+	<Appartement nom="Appart Peter 1">
 		<hote>
 			<nom>Bardu</nom>
 			<prenom>Peter</prenom>
@@ -17,8 +16,7 @@
 		<superficieBalcon>10</superficieBalcon>
 	</Appartement>
 	
-	<Appartement>
-		<nom>Appart de Michel sur Tours</nom>
+	<Appartement nom="Appart Michel">
 		<hote>
 			<nom>Michel</nom>
 			<prenom>Paulette</prenom>
@@ -33,8 +31,7 @@
 		<superficieBalcon>0</superficieBalcon>
 	</Appartement>
 	
-	<Appartement>
-		<nom>Appart2 de Peter sur Tours</nom>
+	<Appartement nom="Appart Peter 2">
 		<hote>
 			<nom>Bardu</nom>
 			<prenom>Peter</prenom>
@@ -48,9 +45,8 @@
 		<numeroEtage>3</numeroEtage>
 		<superficieBalcon>0</superficieBalcon>
 	</Appartement>
-	
-	<Maison>
-		<nom>Maison de Peter sur Tours</nom>
+
+	<Maison nom="Maison Peter">
 		<hote>
 			<nom>Bardu</nom>
 			<prenom>Peter</prenom>
@@ -65,8 +61,7 @@
 		<possedePiscine>0</possedePiscine>
 	</Maison>
 	
-	<Maison>
-		<nom>Maison de Jean sur Tours</nom>
+	<Maison nom="Maison Jean">
 		<hote>
 			<nom>Jean</nom>
 			<prenom>Mi</prenom>

@@ -30,7 +30,7 @@ public class Maison extends Logement {
     }
 
     public void afficher() {
-        this.getHote().afficher();
+//        this.getHote().afficher();
         System.out.print(".\nLe logement \"" + this.getNom() + "\" est une maison située " + this.getAdresse() + ".");
         System.out.print("\nSuperficie : " + getSuperficie() + "m2");
         if(superficieJardin > 0)
